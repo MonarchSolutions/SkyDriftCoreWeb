@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Mvc.Routing
+@using SkyDriftCoreWeb.Controllers
+@model SkyDriftCoreWeb.Models.StaticsModels.RecordQueryModel
+@{
+    ViewBag.Title = "赛道记录";
+}
+
+<h2>@ViewBag.Title</h2>
+<h4>@Html.ActionLink("积分排行", "Index")</h4>
+<h3>@ViewBag.CourseName</h3>
+<form asp-controller="Statics" asp-action="Record" class="navbar-form navbar-right" name="searchform" method="get">
+    <div class="input-group">
+        @Html.DropDownListFor(m => m.Course, Helper.GetSelectList(typeof(Course)),new {@class = "form-control"})
+        <span class="btn input-group-addon" onclick="document.searchform.submit();">
+            <span class="glyphicon  glyphicon-search"></span>
+        </span>
+    </div>
+</form>
+<table class="table  table-hover table-bordered  table-condensed">
+    <thead>
+        <tr>
+            <th>排名</th>
+            <th>昵称</th>
+            <th>总时间</th>
+            <th>第1圈</th>
+            <th>第2圈</th>
+            <th>第3圈</th>
+            <th>使用角色</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Records.Count; i++)
+        {
+            var item = Model.Records[i];
+            var u = (await Core.UserManager.GetUserByIdAsync(item.UserId));
+
+            <tr>
+                <td>@(i + 1)</td>
+                <td>
+                    @{
+                        if (u == null)
+                        {
+                            <text>深藏功与名</text>
+                        }
+                        else
+                        {
+                            @Html.ActionLink(u.NickName ?? u.UserName, "Info", new { userId = u.Id })
+                        }
+                    }
+                </td>
+
+                <td>@Helper.TimeToString(item.TotalTime)</td>
+                <td>@Helper.TimeToString(item.Time0)</td>
+                <td>@Helper.TimeToString(item.Time1)</td>
+                <td>@Helper.TimeToString(item.Time2)</td>
+                <td>@Helper.GetCharacterName(item.Character1) / @Helper.GetCharacterName(item.Character2)</td>
+            </tr>
+                        }
+
+    </tbody>
+</table>
+@Html.Partial("_PagePartial", ViewData["PageModel"])

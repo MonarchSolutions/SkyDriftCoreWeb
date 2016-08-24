@@ -1,0 +1,285 @@
+﻿@using SkyDriftCoreWeb.Controllers
+@model ApplicationUser
+@{
+    ViewData["Title"] = Model.NickName ?? "玩家信息";
+}
+<link rel="stylesheet" href="~/css/reset.css" />
+<link rel="stylesheet" href="~/css/css.css" />
+
+<div id="container">
+    <div id="header">
+        <div id="header_logo"><a href="http://skydrift.illucalab.com/online_manual.html"><img src="~/images/header_logo.png"></a></div>
+        <div id="header_main"></div>
+        @*<div id="header_menu">
+                <ul>
+                    <li class="menu_001"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_001_now.png"></li>
+                    <li class="menu_002"><a href="http://ranking.web-skydrift.com/allresults.html"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_002_on.png" style="opacity: 0; position: absolute;"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_002_on.png" style="opacity: 0; position: absolute;"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_002_off.png"></a></li>
+                    <li class="menu_003"><a href="http://ranking.web-skydrift.com/support.html"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_003_on.png" style="opacity: 0; position: absolute;"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_003_on.png" style="opacity: 0; position: absolute;"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_003_off.png"></a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>*@
+    </div>
+    <div id="content">
+
+        <!-- キャラクター勝率 ====================================================================================================-->
+
+        <div class="title"><div class="title_text">@(Model.NickName ?? Model.UserName) - 玩家信息 @(Model.State != UserState.Offline? "[可能在线]":"[离线]")</div></div>
+        <div id="rate">
+            <div id="rate_box">
+                <ul>
+                    <li class="rate_r_title">等级【排位】<br></li>
+                    <li id="user_klass" class="rate_r_text">@Helper.GetClassName((int)Model.Class)【@Helper.GetRankName(Model.Rank)】</li>
+                    <li class="rate_r_title">积分<br></li>
+                    <li class="rate_r_text">@Model.Class</li>
+                    <li class="rate_r_title">宣言<br></li>
+                    <li id="user_rank" class="rate_r_text">@Model.Sign</li>
+                    <li class="rate_r_title">常用角色/胜场最多角色<br></li>
+                    <li id="user_name" class="rate_r_text">@Helper.GetFavoriteCharacter(Model.Id) / @Helper.GetWinCharacter(Model.Id)</li>
+                </ul>
+                @*<div id="rate_l">
+                        <img src="~/images/title_000.png"><br>
+                        <div id="user_win_rate" class="jqplot-target" style="position: relative; height: 300px;">
+                            <canvas width="624" height="300" class="jqplot-base-canvas" style="position: absolute; left: 0px; top: 0px;"></canvas>
+                            <div class="jqplot-title" style="height: 0px; width: 0px;"></div><canvas width="624" height="300" class="jqplot-grid-canvas" style="position: absolute; left: 0px; top: 0px;"></canvas><canvas width="604" height="267" class="jqplot-series-shadowCanvas" style="position: absolute; left: 10px; top: 10px;"></canvas><canvas width="604" height="267" class="jqplot-series-canvas" style="position: absolute; left: 10px; top: 10px;"></canvas><table class="jqplot-table-legend" style="position: absolute; left: 71px; bottom: 23px;">
+                                <tbody>
+                                    <tr class="jqplot-table-legend">
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0px;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(242, 20, 20); background-color: rgb(242, 20, 20);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0px;">霊夢</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0px;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(193, 20, 242); background-color: rgb(193, 20, 242);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0px;">魔理沙</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0px;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(20, 187, 242); background-color: rgb(20, 187, 242);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0px;">咲夜</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0px;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(242, 20, 125); background-color: rgb(242, 20, 125);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0px;">レミリア</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0px;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(26, 195, 48); background-color: rgb(26, 195, 48);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0px;">早苗</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0px;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(123, 195, 96); background-color: rgb(123, 195, 96);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0px;">諏訪子</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0px;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(168, 176, 25); background-color: rgb(168, 176, 25);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0px;">こいし</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0px;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(204, 68, 201); background-color: rgb(204, 68, 201);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0px;">こころ</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0px;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(111, 180, 157); background-color: rgb(111, 180, 157);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0px;">妖夢</td>
+                                    </tr>
+                                    <tr class="jqplot-table-legend">
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0.5em;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(158, 65, 227); background-color: rgb(158, 65, 227);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0.5em;">鈴仙</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0.5em;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(58, 184, 189); background-color: rgb(58, 184, 189);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0.5em;">ぬえ</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0.5em;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(145, 188, 180); background-color: rgb(145, 188, 180);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0.5em;">布都</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0.5em;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(157, 215, 227); background-color: rgb(157, 215, 227);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0.5em;">チルノ</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0.5em;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(212, 47, 9); background-color: rgb(212, 47, 9);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0.5em;">正邪</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0.5em;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(202, 149, 52); background-color: rgb(202, 149, 52);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0.5em;">萃香</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0.5em;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(249, 128, 181); background-color: rgb(249, 128, 181);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0.5em;">華扇</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0.5em;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(85, 80, 155); background-color: rgb(85, 80, 155);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0.5em;">天子</td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-swatch" style="text-align: center; padding-top: 0.5em;">
+                                            <div class="jqplot-table-legend-swatch-outline">
+                                                <div class="jqplot-table-legend-swatch" style="border-color: rgb(198, 151, 228); background-color: rgb(198, 151, 228);"></div>
+                                            </div>
+                                        </td>
+                                        <td class="jqplot-table-legend jqplot-table-legend-label" style="padding-top: 0.5em;">紫</td>
+                                    </tr>
+                                </tbody>
+                            </table><canvas width="604" height="267" class="jqplot-pieRenderer-highlight-canvas" style="position: absolute; left: 10px; top: 10px;"></canvas>
+                            <div class="jqplot-pie-series jqplot-data-label" style="position: absolute; left: 317px; top: 58px;">6%</div>
+                            <div class="jqplot-pie-series jqplot-data-label" style="position: absolute; left: 291px; top: 141px;">91%</div><canvas width="604" height="267" class="jqplot-event-canvas" style="position: absolute; left: 10px; top: 10px;"></canvas>
+                        </div>
+                    </div>
+                    <div class="clear"></div>*@
+            </div>
+        </div>
+        <div class="title">
+            <div class="title_text">赛道胜率</div>
+        </div>
+        <div id="course">
+            <div id="course_box">
+                <div id="course_box_l">
+                    <ul>
+                        <li class="course_box_l_title"><img src="~/images/title_006.png"><br></li>
+                        @{
+                            var winCourse = $"/images/result_course_{Helper.GetWinCourseId(Model.Id):D3}.png";
+                            var loseCourse = $"/images/result_course_{Helper.GetLoseCourseId(Model.Id):D3}.png";
+                        }
+                        <li class="course_box_l_image"><img id="best_course" src="@winCourse"><br></li>
+                        <li class="course_box_l_title"><img src="~/images/title_007.png"><br></li>
+                        <li class="course_box_l_image"><img id="worst_course" src="@loseCourse"><br></li>
+                    </ul>
+                </div>
+                <div id="course_box_r">
+                    <img src="~/images/title_008.png"><br>
+                    <ul>
+                        @{ var cWinRate = Helper.GetCourseWinRate(Model.Id);}
+                        @for (int i = 0; i < Helper.CourseCount; i++)
+                        {
+                            var coursePic = $"/images/result_course_min_{i + 1:D3}.png";
+                            <li>
+                                <div class="image">
+                                    <img src="@coursePic">
+                                </div>
+                                <div id="course_@i" class="balloon">@cWinRate[i]</div>
+                                <div class="clear"></div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <!-- キャラクター使用率 ====================================================================================================-->
+
+        <div class="title"><div class="title_text">角色胜率</div></div>
+        <div id="charactor">
+            @{
+                var chWinRate = Helper.GetCharacterWinRate(Model.Id);
+            }
+            <!-- キャラクター一覧 ( 1 段目 ) ==================================================================================================== -->
+            <div id="charactor_box">
+                <div id="score">
+                    <ul>
+                        @for (int i = 0; i < 14; i++)
+                        {
+                            <li id="use_@i">@chWinRate[i].ToString("P2")</li>
+                        }
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div id="bar">
+                    @for (int i = 1; i <= 14; i++)
+                    {
+                        var style = $"height: {chWinRate[i - 1] * 200:F2}px;";
+                        <div id="bar_@i.ToString("D3")" style="@style"></div>
+                    }
+                    <div class="clear"></div>
+                </div>
+                <div class="icon">
+                    <ul>
+                        <li><img src="~/images/icon_001.png"></li>
+                        <li><img src="~/images/icon_002.png"></li>
+                        <li><img src="~/images/icon_003.png"></li>
+                        <li><img src="~/images/icon_004.png"></li>
+                        <li><img src="~/images/icon_005.png"></li>
+                        <li><img src="~/images/icon_006.png"></li>
+                        <li><img src="~/images/icon_007.png"></li>
+                        <li><img src="~/images/icon_008.png"></li>
+                        <li><img src="~/images/icon_009.png"></li>
+                        <li><img src="~/images/icon_010.png"></li>
+                        <li><img src="~/images/icon_011.png"></li>
+                        <li><img src="~/images/icon_012.png"></li>
+                        <li><img src="~/images/icon_013.png"></li>
+                        <li><img src="~/images/icon_014.png"></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- キャラクター一覧 ( 2 段目 ) ==================================================================================================== -->
+
+            <div id="charactor_box">
+                <div id="score">
+                    <ul>
+                        @for (int i = 14; i < 18; i++)
+                        {
+                            <li id="use_@i">@chWinRate[i].ToString("P2")</li>
+                        }
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div id="bar">
+                    @for (int i = 15; i <= 18; i++)
+                    {
+                        var style = $"height: {chWinRate[i - 1] * 200:F2}px;";
+                        <div id="bar_@i.ToString("D3")" style="@style"></div>
+                    }
+
+                    <div class="clear"></div>
+                </div>
+                <div class="icon">
+                    <ul>
+                        <li><img src="~/images/icon_015.png"></li>
+                        <li><img src="~/images/icon_016.png"></li>
+                        <li><img src="~/images/icon_017.png"></li>
+                        <li><img src="~/images/icon_018.png"></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

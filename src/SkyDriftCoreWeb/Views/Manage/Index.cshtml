@@ -1,0 +1,42 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "账户管理";
+}
+
+<h2>@ViewData["Title"]</h2>
+<p class="text-success">@ViewData["StatusMessage"]</p>
+
+<div>
+    <h4>查看和修改你的账户</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>密码：</dt>
+        <dd>
+            @if (Model.HasPassword)
+            {
+                <a asp-controller="Manage" asp-action="ChangePassword" class="btn-bracketed">修改</a>
+            }
+            else
+            {
+                <a asp-controller="Manage" asp-action="SetPassword" class="btn-bracketed">设置</a>
+            }
+        </dd>
+        <dt>账号：</dt>
+        <dd>@Model.User.UserName</dd>
+        <dt>昵称：</dt>
+        <dd>@Model.User.NickName</dd>
+        <dt>积分：</dt>
+        <dd>@Model.User.Class</dd>
+        <dt>上次登录时间：</dt>
+        <dd>@Model.User.LoginTime</dd>
+        <dt>个性签名：</dt>
+        <dd>@Model.User.Sign</dd>
+        @*<dt>External Logins:</dt>
+            <dd>
+                @Model.Logins.Count <a asp-controller="Manage" asp-action="ManageLogins" class="btn-bracketed">Manage</a>
+            </dd>*@
+    </dl>
+    <div class="col-md-offset-2 col-md-10">
+        <a asp-action="Edit" class="btn btn-default">修改个人信息</a>
+    </div>
+</div>

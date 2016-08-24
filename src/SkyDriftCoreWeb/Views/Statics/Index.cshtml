@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Mvc.Routing
+@using SkyDriftCoreWeb.Controllers
+@model List<ApplicationUser>
+@{
+    ViewBag.Title = "Rank";
+}
+
+<h2>积分排行</h2>
+<h4>@Html.ActionLink("赛道记录", "Record")  @Html.ActionLink("用户状态", "State", "Statics")</h4>
+<form asp-controller="Statics" asp-action="Index" class="navbar-form navbar-right" name="searchform" method="get">
+    <div class="input-group">
+        <input type="text" id="searchkey" name="searchkey" class="form-control" placeholder="输入@@online搜索在线用户..." />
+        <input type="hidden" name="index" value="1" class="form-control" />
+        <span class="btn input-group-addon" onclick="document.searchform.submit();">
+            <span class="glyphicon  glyphicon-search"></span>
+        </span>
+    </div>
+</form>
+<table class="table  table-hover table-bordered  table-condensed">
+    <thead>
+        <tr>
+            <th>排位</th>
+            <th>昵称</th>
+            <th>等级/分数</th>
+            <th>常用角色</th>
+            <th>当前状态</th>
+            <th>宣言</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(ViewBag.Rank.IndexOf(item) + 1)</td>
+                <td>@Html.ActionLink(item.NickName ?? item.UserName, "Info", new { userId = item.Id })</td>
+                <td>@Helper.GetClassName((int)item.Class)/@item.Class</td>
+                @{
+                }
+                <td>@Helper.GetFavoriteCharacter(item.Id)</td>
+                <td>@Helper.GetState(item)</td>
+                <td>@item.Sign?.Replace("\n", "")</td>
+            </tr>
+                    }
+
+    </tbody>
+</table>
+@Html.Partial("_PagePartial", ViewData["PageModel"])

@@ -1,0 +1,237 @@
+﻿@charset "utf-8";
+
+/* 基本設定 ==================================================================================================== */
+
+body{ margin:0; padding:0;padding-top: 40px; background-image:url(../images/body_bg.png); background-repeat:repeat-x; background-position:top center; font-family:Arial, Helvetica,"微软雅黑",Microsoft YaHei,"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HiraKakuPro-W3","ＭＳ Ｐゴシック","MS PGothic",sans-serif; letter-spacing:0.8px; line-height:160%; color:#333; font-size:14px; }
+a{ color:#558; } a:hover{ color:#77A; }  
+.clear{ clear:both }
+#container{ width:1026px; margin:0 auto; }
+
+
+/* HEADER ==================================================================================================== */
+
+
+#header{ width:1026px; height:430px; position:relative; margin-left:-513px; left:50%; }
+#header_logo{ position:absolute; width:230px; height:68px; left:0; margin-top:10px; }
+#header_main{ position:absolute; width:545px; height:450px; background-image:url(../images/header_main.png); background-repeat:no-repeat; margin-left:-273px; left:50%; margin-top:10px;  }
+#header_menu{ position:absolute; margin-top:320px; width:530px; margin-left:-265px; left:50%; height:150px; }
+#header_menu li.menu_001{ float:left; }
+#header_menu li.menu_002{ float:left; margin-left:40px; }
+#header_menu li.menu_003{ float:left; margin-left:40px; }
+
+
+/* CONTENT ==================================================================================================== */
+
+
+#content{ width:1026px; margin-top:80px; position:relative; } 
+#content .title{ border-radius:3px 0 0 3px; position:relative; background-image:url(../images/title_bg.png); background-repeat:no-repeat; background-position:top left; width:550px; height:42px; }
+#content .title_text{ position:absolute; color:#fff; font-size:14px; top:50%; font-weight:bold; margin-top:-10px; margin-left:20px; }
+#content_box{ padding:20px; margin:20px 0 20px 0; border:1px solid #CCC; border-radius:3px; }
+
+
+/* CONTENT_RANKING ==================================================================================================== */
+
+
+#content_ranking_navigation{ margin-top:10px; float:right; }
+#content_ranking_navigation li{ float:left; margin-left:10px; }
+#ranking_search_form{ position:absolute; right:0; width:244px; background-color:#BCC; padding:8px; width:244px; box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2) inset; border-radius:3px; }
+#ranking_search_form_text{ border:none;  background:none; padding:5px; -webkit-appearance:none;  width:200px; color:#666; }
+#ranking_search_form_icon{ float:right; width:24px;  height:24px; }
+#table_ranking{ width:100%; border-collapse:collapse; margin-top:20px; }
+#table_ranking th{ padding:10px 20px 10px 20px; border:1px solid #AAA; background-color:#BCC }
+#table_ranking td{ padding:10px 20px 10px 20px; border:1px solid #AAA; }
+#table_ranking td#number{ width:40px; text-align:center; background-color:#EEE; }
+#table_ranking td#rate{ width:160px; color:#764; }
+#table_timeattack_ranking{ width:100%; border-collapse:collapse; margin-top:20px; }
+#table_timeattack_ranking th{ padding:10px 20px 10px 20px; border:1px solid #AAA; background-color:#BCC }
+#table_timeattack_ranking td{ padding:10px 20px 10px 20px; border:1px solid #AAA; }
+#table_timeattack_ranking td#number{ width:40px; text-align:center; background-color:#EEE; }
+#table_timeattack_ranking td#rate{ width:160px; color:#764; }
+.time-column { width: 50px; }
+
+
+/* CONTENT_RATE ==================================================================================================== */
+
+
+#rate{ margin:20px 0 20px 0;  background-image:url(../images/content_bg.png); border:1px solid #CCC; margin-top:20px; border-radius:5px; }
+#rate_box{ padding:20px; background-color:#FFF; margin:20px 0 20px 0; }
+.rate_r_title {list-style-type: none; padding-top: 8px; height: 36px; background-image:url(../images/title_s_bg.png); background-repeat: no-repeat; text-indent: 50px;}
+.rate_r_text {list-style-type: none; padding-top: 8px;height: 36px;font-weight: bold;text-indent: 10px;}
+#rate_l{ float:left; width:624px; }
+#rate_l #graph{ background-image:url(../images/graph_001_bg.png); padding:60px; }
+#rate_l #graph_box{ width:182px; height:182px; margin:0 auto; }
+#rate_l #member{ padding:20px; font-size:10px; background-color:#EEE; border:1px solid #CCC; }
+#rate_l #member ul{ margin-top:10px; }
+#rate_l #member ul:first-child{ margin-top:0; }
+#rate_l #member li{ padding-left:5px; margin-left:10px; line-height:100%; list-style:none; float:left; }
+#rate_l #member li:first-child{ margin-left:0; }
+#rate_l #member li.reimu{ border-left:10px solid #c02a3c; }
+#rate_l #member li.marisa{ border-left:10px solid #ffffbd; }
+#rate_l #member li.sakuya{ border-left:10px solid #d6d8f8; }
+#rate_l #member li.remiria{ border-left:10px solid #d2b6eb; }
+#rate_l #member li.sanae{ border-left:10px solid #579a8a; }
+#rate_l #member li.suwako{ border-left:10px solid #fee99b; }
+#rate_l #member li.koishi{ border-left:10px solid #9cc57a; }
+#rate_l #member li.kokoro{ border-left:10px solid #e2a4c4; }
+#rate_l #member li.youmu{ border-left:10px solid #CCC; }
+#rate_l #member li.udonge{ border-left:10px solid #d3a6ea; }
+#rate_l #member li.nue{ border-left:10px solid #725770; }
+#rate_l #member li.futo{ border-left:10px solid #bcadb2; }
+#rate_l #member li.cirno{ border-left:10px solid #a6ccf6; }
+#rate_l #member li.seija{ border-left:10px solid #483658; }
+
+
+/* CONTENT_COURSE ==================================================================================================== */
+
+
+#course{ margin:20px 0 20px 0; background-image:url(../images/content_bg.png); border:1px solid #CCC; margin-top:20px; border-radius:5px; }
+#course_box{ background-color:#FFF; margin:20px 0 20px 0; padding:20px 0 20px 20px; }
+#course_box_l{ float:left; }
+.course_box_l_title{ padding-bottom:20px; margin-top:20px; }
+.course_box_l_title:first-child{ margin-top:0; }
+.course_box_l_image{ padding-bottom:20px; border-bottom:1px dotted #CCC; }
+.course_box_l_image:last-child{ padding-bottom:0; border-bottom:0; }
+#course_box_r{ float:right; width:660px; }
+#course_box_r ul{ margin-top:20px; }
+#course_box_r li{ padding-right:20px; padding-bottom:20px; list-style:none; float:left; width:200px; }
+#course_box_r .image{ float:left; width:80px; }
+#course_box_r .balloon{ font-weight:bold; color:#FFF; float:right; position: relative; display:inline-block; padding:10px; width:80px; text-align:center; background-color:#369; border-radius:3px; height:40px; font-size:14px; }
+#course_box_r .balloon:after, .content_course_box_right_baloon:before { content: ""; position: absolute; height: 0; width: 0; }
+#course_box_r .balloon:after { top: 10px; left: -20px; border: 10px solid transparent; border-right: 15px solid #369; }
+#course_box_r .balloon:before { top: 10px; left: -20px; border: 10px solid transparent; border-right: 10px solid #369; }
+
+
+/* CONTENT_ALLCOURSE ==================================================================================================== */
+
+
+#allcourse{ margin:20px 0 20px 0; background-image:url(../images/content_bg.png); border:1px solid #CCC; margin-top:20px; border-radius:5px; }
+#allcourse_box{ background-color:#FFF; margin:20px 0 20px 0; padding:20px 0 20px 20px; }
+#allcourse_box_l{ float:left; width:414px; }
+#allcourse_box_l_box{ padding:20px; border-left:1px solid #CCC; border-right:1px solid #CCC; border-bottom:1px solid #CCC; }
+#allcourse_box_r{ float:right; width:570px; }
+#allcourse_box_r ul{ margin-top:20px; }
+#allcourse_box_r li{ padding-right:20px; padding-bottom:20px; list-style:none; float:left; width:170px; }
+#allcourse_box_r .image{ float:left; width:50px; }
+#allcourse_box_r .balloon{ font-weight:bold; color:#FFF; float:right; position: relative; display:inline-block; padding:10px; width:80px; text-align:center; background-color:#369; border-radius:3px; height:20px; font-size:14px; }
+#allcourse_box_r .balloon:after, .content_course_box_right_baloon:before { content: ""; position: absolute; height: 0; width: 0; }
+#allcourse_box_r .balloon:after { top: 10px; left: -20px; border: 10px solid transparent; border-right: 15px solid #369; }
+#allcourse_box_r .balloon:before { top: 10px; left: -20px; border: 10px solid transparent; border-right: 10px solid #369; }
+#slide_001{ position:relative; width:324px; height:205px; padding:0 25px 0 25px; }
+#slide_001 .slide_box{ width:100%; height:100%; position:relative; }
+#slide_001 .slide_item{ position:relative; float:left; width:374px; height:400px; background-color:#FFF; }
+#slide_001 .slide_nav span{ position:absolute; width:25px; height:205px; background:transparent url(../images/slide_arrow.png) no-repeat top left; left:0; text-indent:-9000px; cursor:pointer; z-index:100; }
+#slide_001 .slide_nav span.slide_nav-next{ background-position:top right; left:auto; right:0; }
+#slide_002{ position:relative; width:324px; height:205px; padding:0 25px 0 25px; }
+#slide_002 .slide_box{ width:100%; height:100%; position:relative; }
+#slide_002 .slide_item{ position:relative; float:left; width:374px; height:400px; background-color:#FFF; }
+#slide_002 .slide_nav span{ position:absolute; width:25px; height:205px; background:transparent url(../images/slide_arrow.png) no-repeat top left; left:0; text-indent:-9000px; cursor:pointer; z-index:100; }
+#slide_002 .slide_nav span.slide_nav-next{ background-position:top right; left:auto; right:0; }
+#slide_003{ position:relative; width:324px; height:205px; padding:0 25px 0 25px; }
+#slide_003 .slide_box{ width:100%; height:100%; position:relative; }
+#slide_003 .slide_item{ position:relative; float:left; width:374px; height:400px; background-color:#FFF; }
+#slide_003 .slide_nav span{ position:absolute; width:25px; height:205px; background:transparent url(../images/slide_arrow.png) no-repeat top left; left:0; text-indent:-9000px; cursor:pointer; z-index:100; }
+#slide_003 .slide_nav span.slide_nav-next{ background-position:top right; left:auto; right:0; }
+
+
+/* CONTENT_CHARACTOR ==================================================================================================== */
+
+
+#charactor{ margin:20px 0 20px 0;  border-radius:5px; border:1px solid #CCC; background-image:url(../images/content_bg.png); }
+#charactor_box{ margin:32px 0 32px 0; height:270px; padding:0px 0 12px 12px; background-image:url(../images/graph_002_bg.png); background-position:bottom; }
+#charactor_box #score{ }
+#charactor_box #score li{ list-style:none; margin-left:20px; width:50px; line-height:100%; text-align:center; float:left; color:#369; }
+#charactor_box #bar{ position:relative; height:200px; padding:10px 0 0 0; }
+#charactor_box #bar_001{ position:absolute; bottom:0; list-style:none; margin-left:20px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_002{ position:absolute; bottom:0; list-style:none; margin-left:90px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_003{ position:absolute; bottom:0; list-style:none; margin-left:160px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_004{ position:absolute; bottom:0; list-style:none; margin-left:230px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_005{ position:absolute; bottom:0; list-style:none; margin-left:300px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_006{ position:absolute; bottom:0; list-style:none; margin-left:370px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_007{ position:absolute; bottom:0; list-style:none; margin-left:440px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_008{ position:absolute; bottom:0; list-style:none; margin-left:510px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_009{ position:absolute; bottom:0; list-style:none; margin-left:580px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_010{ position:absolute; bottom:0; list-style:none; margin-left:650px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_011{ position:absolute; bottom:0; list-style:none; margin-left:720px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_012{ position:absolute; bottom:0; list-style:none; margin-left:790px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_013{ position:absolute; bottom:0; list-style:none; margin-left:860px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_014{ position:absolute; bottom:0; list-style:none; margin-left:930px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_015{ position:absolute; bottom:0; list-style:none; margin-left:20px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_016{ position:absolute; bottom:0; list-style:none; margin-left:90px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_017{ position:absolute; bottom:0; list-style:none; margin-left:160px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_018{ position:absolute; bottom:0; list-style:none; margin-left:230px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_019{ position:absolute; bottom:0; list-style:none; margin-left:300px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_020{ position:absolute; bottom:0; list-style:none; margin-left:370px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_021{ position:absolute; bottom:0; list-style:none; margin-left:440px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_022{ position:absolute; bottom:0; list-style:none; margin-left:510px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_023{ position:absolute; bottom:0; list-style:none; margin-left:580px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_024{ position:absolute; bottom:0; list-style:none; margin-left:650px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_025{ position:absolute; bottom:0; list-style:none; margin-left:720px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_026{ position:absolute; bottom:0; list-style:none; margin-left:790px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_027{ position:absolute; bottom:0; list-style:none; margin-left:860px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #bar_028{ position:absolute; bottom:0; list-style:none; margin-left:930px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_001{ position:absolute; bottom:0; list-style:none; margin-left:20px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_002{ position:absolute; bottom:0; list-style:none; margin-left:90px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_003{ position:absolute; bottom:0; list-style:none; margin-left:160px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_004{ position:absolute; bottom:0; list-style:none; margin-left:230px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_005{ position:absolute; bottom:0; list-style:none; margin-left:300px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_006{ position:absolute; bottom:0; list-style:none; margin-left:370px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_007{ position:absolute; bottom:0; list-style:none; margin-left:440px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_008{ position:absolute; bottom:0; list-style:none; margin-left:510px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_009{ position:absolute; bottom:0; list-style:none; margin-left:580px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_010{ position:absolute; bottom:0; list-style:none; margin-left:650px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_011{ position:absolute; bottom:0; list-style:none; margin-left:720px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_012{ position:absolute; bottom:0; list-style:none; margin-left:790px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_013{ position:absolute; bottom:0; list-style:none; margin-left:860px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_014{ position:absolute; bottom:0; list-style:none; margin-left:930px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_015{ position:absolute; bottom:0; list-style:none; margin-left:20px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_016{ position:absolute; bottom:0; list-style:none; margin-left:90px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_017{ position:absolute; bottom:0; list-style:none; margin-left:160px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_018{ position:absolute; bottom:0; list-style:none; margin-left:230px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_019{ position:absolute; bottom:0; list-style:none; margin-left:300px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_020{ position:absolute; bottom:0; list-style:none; margin-left:370px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_021{ position:absolute; bottom:0; list-style:none; margin-left:440px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_022{ position:absolute; bottom:0; list-style:none; margin-left:510px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_023{ position:absolute; bottom:0; list-style:none; margin-left:580px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_024{ position:absolute; bottom:0; list-style:none; margin-left:650px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_025{ position:absolute; bottom:0; list-style:none; margin-left:720px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_026{ position:absolute; bottom:0; list-style:none; margin-left:790px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_027{ position:absolute; bottom:0; list-style:none; margin-left:860px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #weekly_bar_028{ position:absolute; bottom:0; list-style:none; margin-left:930px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_001{ position:absolute; bottom:0; list-style:none; margin-left:20px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_002{ position:absolute; bottom:0; list-style:none; margin-left:90px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_003{ position:absolute; bottom:0; list-style:none; margin-left:160px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_004{ position:absolute; bottom:0; list-style:none; margin-left:230px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_005{ position:absolute; bottom:0; list-style:none; margin-left:300px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_006{ position:absolute; bottom:0; list-style:none; margin-left:370px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_007{ position:absolute; bottom:0; list-style:none; margin-left:440px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_008{ position:absolute; bottom:0; list-style:none; margin-left:510px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_009{ position:absolute; bottom:0; list-style:none; margin-left:580px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_010{ position:absolute; bottom:0; list-style:none; margin-left:650px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_011{ position:absolute; bottom:0; list-style:none; margin-left:720px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_012{ position:absolute; bottom:0; list-style:none; margin-left:790px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_013{ position:absolute; bottom:0; list-style:none; margin-left:860px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_014{ position:absolute; bottom:0; list-style:none; margin-left:930px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_015{ position:absolute; bottom:0; list-style:none; margin-left:20px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_016{ position:absolute; bottom:0; list-style:none; margin-left:90px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_017{ position:absolute; bottom:0; list-style:none; margin-left:160px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_018{ position:absolute; bottom:0; list-style:none; margin-left:230px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_019{ position:absolute; bottom:0; list-style:none; margin-left:300px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_020{ position:absolute; bottom:0; list-style:none; margin-left:370px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_021{ position:absolute; bottom:0; list-style:none; margin-left:440px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_022{ position:absolute; bottom:0; list-style:none; margin-left:510px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_023{ position:absolute; bottom:0; list-style:none; margin-left:580px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_024{ position:absolute; bottom:0; list-style:none; margin-left:650px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_025{ position:absolute; bottom:0; list-style:none; margin-left:720px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_026{ position:absolute; bottom:0; list-style:none; margin-left:790px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_027{ position:absolute; bottom:0; list-style:none; margin-left:860px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box #monthly_bar_028{ position:absolute; bottom:0; list-style:none; margin-left:930px; float:left; height:200px; width:50px; border-radius:3px 3px 0 0; background-image:url(../images/graph.png); }
+#charactor_box .icon{ width:980px; }
+#charactor_box .icon li{ list-style:none; margin-left:20px; float:left; width:50px; height:50px; background-color:#DDD; }
+
+
+/* FOOTER ==================================================================================================== */
+
+
+#footer{ width:100%; margin-top:40px; background-color:#333; color:#FFF; text-align:center; padding:20px 0 20px 0; font-size:11px; }
+#footer a{ text-decoration:none; color:#DDF; } #footer a:hover{ color:#BBD; }
+

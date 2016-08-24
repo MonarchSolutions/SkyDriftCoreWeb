@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "幻想乡";
+}
+<link rel="stylesheet" href="~/css/css.css" />
+<div id="container">
+    <div id="header">
+        <div id="header_logo"><a href="http://skydrift.illucalab.com/online_manual.html"><img src="~/images/header_logo.png"></a></div>
+        <div id="header_main"></div>
+        @*<div id="header_menu">
+                <ul>
+                    <li class="menu_001"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_001_now.png"></li>
+                    <li class="menu_002"><a href="http://ranking.web-skydrift.com/allresults.html"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_002_on.png" style="opacity: 0; position: absolute;"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_002_on.png" style="opacity: 0; position: absolute;"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_002_off.png"></a></li>
+                    <li class="menu_003"><a href="http://ranking.web-skydrift.com/support.html"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_003_on.png" style="opacity: 0; position: absolute;"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_003_on.png" style="opacity: 0; position: absolute;"><img src="./幻走スカイドリフト Web戦績ranking_files/menu_003_off.png"></a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>*@
+    </div>
+    <div id="content">
+        <h3>幻走SkyDrift联机服务器：幻想乡（测试服）</h3>
+        <p>这是由Ulysses搭建的《幻走SkyDrift》联机服务器。</p>
+        <p>
+            <strong>常用链接：</strong>
+            @Html.ActionLink("注册用户", "Register", "Account")
+            @Html.ActionLink("用户登录", "Login", "Account")
+            @Html.ActionLink("个人信息", "Index", "Manage")
+            <a href="http://pan.baidu.com/s/1nuUkRyh">游戏下载</a>
+            @Html.ActionLink("排行榜", "Index", "Statics")
+            @Html.ActionLink("赛道纪录", "Record", "Statics")
+            @Html.ActionLink("在线用户", "Index", "Statics", new { searchKey = "@online" })
+            @Html.ActionLink("用户状态", "State", "Statics")
+            <a href="http://www.7yzone.com/forum.php?mod=viewthread&tid=10940">七曜论坛讨论贴</a>
+            @Html.ActionLink("捐款", "Contact")
+        </p>
+
+        <hr />
+        <p>
+            <strong>游戏下载（整合联机补丁）</strong>：<a href="http://pan.baidu.com/s/1nuUkRyh">点此下载</a>
+        </p>
+        <p><strong>联机补丁</strong>：<a href="http://www.7yzone.com/forum.php?mod=viewthread&tid=7115">直连版</a>   <a href="http://www.7yzone.com/forum.php?mod=viewthread&tid=10940">服务器版</a></p>
+        <p>注意：标有EX的为服务器版，其余为直连版。上面的链接中也有部分游戏升级补丁。</p>
+        <hr />
+        <h4>How To Play</h4>
+        <p>1. 在本网站注册账号（右上角点“注册”）。请注意不要输错Email。（序列号请从相关发布处获取）</p>
+        <p>2. 下载游戏整合包，或者手动安装服务器版联机补丁。</p>
+        <p>3. 打开服务器选择器，选择“幻想乡”服务器，点击“应用”。然后开始游戏。</p>
+        <p>4. 进入游戏，先后填写注册时的序列号、Email、密码，完成登录，然后进入VERSUS——ONLINE选择模式开始联机游戏。</p>
+        <hr />
+        <h4>服务器说明</h4>
+        <p>00服[NAT]是推荐选项（也是整合包默认选项），使用本服务器的NAT服务，不使用代理。</p>
+        <p>01服[NAT+代理]仅限网络环境非常恶劣（在00服中无法进入房间）的用户尝试，使用本服务器进行中继代理，会消耗较多服务器流量并可能造成游戏延迟。（当服务器流量消耗过快时可能停止服务）</p>
+        <p>02服[日服NAT]是使用官方NAT服务（而非本服务器的NAT）的选项（也就是对本服务器最友好的选项），对于有公网IP或不开启NAT的用户来说没有任何区别，而00服的NAT用户和02服的NAT用户之间可能无法连通。</p>
+        <hr />
+        <h4>注意事项</h4>
+        <p>1. 本服务器仅为娱乐，请勿注册小号。请勿攻击本服务器。请勿作弊。</p>
+        <p>2. 请仔细阅读相关说明，勿做伸手党。</p>
+        <p>3. 服务器的运行情况（如当前运行状态、停机维护时间等）请到上方“新闻”链接内查看。</p>
+        <p>4. 如果建的房间没人能连入的话，请尽量让有公网IP的玩家建立房间。</p>
+
+    </div>
+</div>

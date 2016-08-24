@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SkyDriftCoreWeb.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-area="" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a asp-area="" asp-controller="Manage" asp-action="Index" title="管理">
+                    欢迎你，
+                    @{
+                        string name;
+                        var u = (await UserManager.GetUserAsync(User));
+                        name = string.IsNullOrWhiteSpace(u.NickName) ? u.UserName : u.NickName;
+                    }
+                    @name
+                </a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">注销</button>
+            </li>
+        </ul>
+
+    </form>
+                        }
+                        else
+                        {
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a asp-area="" asp-controller="Account" asp-action="Register">注册</a></li>
+                                <li><a asp-area="" asp-controller="Account" asp-action="Login">登录</a></li>
+                            </ul>
+                        }

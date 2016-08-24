@@ -1,0 +1,23 @@
+﻿@model SkyDriftCoreWeb.Models.StaticsModels.StateModel
+@{
+    ViewData["Title"] = "少女祈祷中";
+}
+<h2>玩家状态统计</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt title="可能在线用户">少女摸鱼中：</dt>
+        <dd>
+            @Html.ActionLink(Model.OnlineUsersCount.ToString(), "Index", "Statics", new { searchKey = "@online" })
+        </dd>
+        <dt title="离线用户">少女睡觉中：</dt>
+        <dd>@Model.OfflineUsersCount</dd>
+        <dt title="Rank Match用户（未开始比赛）">少女匹配中：</dt>
+        <dd>@Model.MatchingUsersCount</dd>
+        <dt title="Free Match用户（未开始比赛）">少女房间中：</dt>
+        <dd>@Model.InRoomUsersCount</dd>
+        <dt title="比赛中用户">少女漂移中：</dt>
+        <dd>@Model.RacingUsersCount</dd>
+    </dl>
+
+</div>
