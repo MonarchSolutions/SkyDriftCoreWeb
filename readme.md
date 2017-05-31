@@ -1,12 +1,12 @@
-#»Ã×ßSkyDriftÁª»ú·þÎñÆ÷
+# å¹»èµ°SkyDriftè”æœºæœåŠ¡å™¨
 
-##by Ulysses, wdwxy12345@gmail.com
+## by Ulysses, wdwxy12345@gmail.com
 
-ÓÃÓÚÖ§³Ö¡¶»Ã×ßSkyDrift¡·Áª»ú¶ÔÕ½µÄ·þÎñÆ÷Ç°¶Ë¡¢ºó¶ËÓëWeb API¡£
+ç”¨äºŽæ”¯æŒã€Šå¹»èµ°SkyDriftã€‹è”æœºå¯¹æˆ˜çš„æœåŠ¡å™¨å‰ç«¯ã€åŽç«¯ä¸ŽWeb APIã€‚
 
-²ÉÓÃASP.NET Core¿ª·¢¡£ÀíÂÛÉÏ¿É²¿ÊðÓÚWindows¼°Linux·þÎñÆ÷¡£
+é‡‡ç”¨ASP.NET Coreå¼€å‘ã€‚ç†è®ºä¸Šå¯éƒ¨ç½²äºŽWindowsåŠLinuxæœåŠ¡å™¨ã€‚
 
 
-##LICENSE
+## LICENSE
 
-GPLv3
+LGPLv3
