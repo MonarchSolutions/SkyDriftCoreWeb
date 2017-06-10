@@ -17,5 +17,8 @@ namespace SkyDriftCoreWeb.Models.ApiModels
 
         public int not_use_guid { get; set; }
 
+        public int? use_proxy { get; set; }
+        public string proxy_ip { get; set; }
+        public int? proxy_port { get; set; }
     }
 }

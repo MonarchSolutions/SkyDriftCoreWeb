@@ -13,6 +13,7 @@ namespace SkyDriftCoreWeb.Controllers
 {
     public enum RoomJoin
     {
+        UseProxy = 3,
         UseNat = 2,
         Direct = 1,
         Unable = 0
