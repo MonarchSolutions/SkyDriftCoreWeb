@@ -35,17 +35,17 @@ namespace SkyDriftCoreWeb.Controllers
     public enum Ranking
     {
         /// <summary>
-        /// 特（TOP）
+        /// 特（铜）
         /// </summary>
         V = 10003,
 
         /// <summary>
-        /// 特（GOLD）
+        /// 特（银）
         /// </summary>
         T = 10002,
 
         /// <summary>
-        /// 特（Silver）
+        /// 特（金）
         /// </summary>
         S = 10001,
 
@@ -55,7 +55,7 @@ namespace SkyDriftCoreWeb.Controllers
         A_Red = 9000,
 
         /// <summary>
-        /// 
+        /// 中
         /// </summary>
         B_Green = 6000,
 
@@ -152,7 +152,7 @@ namespace SkyDriftCoreWeb.Controllers
         GoodTag,
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Max
     }
@@ -289,11 +289,12 @@ namespace SkyDriftCoreWeb.Controllers
         public static Task<int> SaveChangesAsyncLock(this DbContext context)
         {
 #if SQLITE
-            lock (Core.DatabaseLock)
-            {
-                var r = context.SaveChanges();
-                return Task.FromResult(r);
-            }
+            return context.SaveChangesAsync();
+            //lock (Core.DatabaseLock)
+            //{
+            //    var r = context.SaveChanges();
+            //    return Task.FromResult(r);
+            //}
 #else
             return context.SaveChangesAsync();
 #endif
@@ -361,7 +362,47 @@ namespace SkyDriftCoreWeb.Controllers
                 return 1;
             }
             var pi = Core.PlayerInfos[id];
-            return pi.CourseWin.GetMaxIndex() + 1;
+            int winCount = -1;
+            int index = 0;
+            for (int i = 0; i < pi.CourseTake.Length; i++)
+            {
+                if (pi.CourseTake[i] <= 0)
+                {
+                    continue;
+                }
+
+                if (pi.CourseWin[i] > winCount)
+                {
+                    index = i;
+                    winCount = pi.CourseWin[i];
+                }
+            }
+            return index + 1;
+        }
+
+        public static int GetLoseCourseId(int id)
+        {
+            if (!Core.PlayerInfos.ContainsKey(id))
+            {
+                return 1;
+            }
+            var pi = Core.PlayerInfos[id];
+            int winCount = pi.CourseTake.Length > 0 ? pi.CourseTake[0] : 99999;
+            int index = 0;
+            for (int i = 0; i < pi.CourseTake.Length; i++)
+            {
+                if (pi.CourseTake[i] <= 0)
+                {
+                    continue;
+                }
+
+                if (pi.CourseWin[i] < winCount)
+                {
+                    index = i;
+                    winCount = pi.CourseWin[i];
+                }
+            }
+            return index + 1;
         }
 
         public static double[] GetCharacterWinRate(int id)
@@ -408,16 +449,6 @@ namespace SkyDriftCoreWeb.Controllers
                 }
             }
             return rate;
-        }
-
-        public static int GetLoseCourseId(int id)
-        {
-            if (!Core.PlayerInfos.ContainsKey(id))
-            {
-                return 1;
-            }
-            var pi = Core.PlayerInfos[id];
-            return pi.CourseWin.GetMinIndex() + 1;
         }
 
         public static string GetWinCourse(int id)
@@ -524,26 +555,26 @@ namespace SkyDriftCoreWeb.Controllers
         {
             if (rank == (int)Ranking.V)
             {
-                return "最强王者";
+                return "铜";
             }
             if (rank == (int)Ranking.T)
             {
-                return "璀璨钻石";
+                return "银";
             }
             if (rank == (int)Ranking.S)
             {
-                return "华贵铂金";
+                return "金（王者）";
             }
             if (rank >= (int)Ranking.A_Red)
             {
-                return "荣耀黄金";
+                return "武";
             }
             if (rank >= (int)Ranking.B_Green)
             {
-                return "不屈白银";
+                return "中";
             }
 
-            return "英勇黄铜";
+            return "稳！";
 
         }
 

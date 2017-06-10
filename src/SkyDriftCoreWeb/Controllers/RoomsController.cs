@@ -76,7 +76,7 @@ namespace SkyDriftCoreWeb.Controllers
                             room_id = room.RoomId.ToString(),
                             room_name = room.RoomName,
                             password_flg = room.HasPassword ? "1" : "0",
-                            deny_watching_flg = room.CanWatch ? "0" : "1",
+                            deny_watching_flg = room.CanWatch ? "1" : "0",
                             racing_now = room.IsRacing ? "1" : "0",
                             players_num = room.PlayerNum.ToString(),
                             watchers_num = room.WatcherNum.ToString(),
@@ -131,7 +131,7 @@ namespace SkyDriftCoreWeb.Controllers
                             host_port = room.UsePort.ToString()
                         });
             }
-            
+
             return
                 Json(
                     new
@@ -234,13 +234,13 @@ namespace SkyDriftCoreWeb.Controllers
                     RoomName = request.room_name,
                     UsePort = request.use_port,
                     HasPassword = request.password_flg == 1,
-                    CanWatch = request.deny_watching_flg == 0,
+                    CanWatch = request.deny_watching_flg == 1,
                     HostIp = HttpContext.GetClientIP(),
                     IsMatch = false,
                     SetupTime = DateTime.Now,
                     HostId = user.Id,
                     PlayerNum = 1,
-                    WatcherNum = request.deny_watching_flg == 0 ? 1 : 0
+                    WatcherNum = request.deny_watching_flg == 1 ? 1 : 0
                 };
                 db.Rooms.Add(room);
                 await Task.WhenAll(_userManager.UpdateAsync(user), db.SaveChangesAsyncLock());

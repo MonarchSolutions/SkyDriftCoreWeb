@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SkyDriftCoreWeb.Data;
 using SkyDriftCoreWeb.Models;
 using SkyDriftCoreWeb.Models.StaticsModels;
@@ -36,6 +36,8 @@ namespace SkyDriftCoreWeb.Controllers
             s.InRoomUsersCount = await users.Count(u => u.State == UserState.InRoom);
             s.RacingUsersCount = await users.Count(u => u.State == UserState.InRace);
             s.OfflineUsersCount = _userManager.Users.Count() - s.OnlineUsersCount;
+
+            s.Rooms = await db.Rooms.ToListAsync();
 
             return View(s);
         }
