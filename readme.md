@@ -6,6 +6,7 @@
 
 采用ASP.NET Core开发。理论上可部署于Windows及Linux服务器。
 
+[打赏](http://114.215.126.213/page/%E5%85%B3%E4%BA%8E)
 
 ## LICENSE
 
