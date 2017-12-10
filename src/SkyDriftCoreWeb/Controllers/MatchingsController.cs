@@ -47,6 +47,16 @@ namespace SkyDriftCoreWeb.Controllers
                 return UnauthorizedJson(HttpContext);
             }
             room.HostGuid = request.not_use_guid == 1 ? null : request.guid;
+            //Proxy
+            if (request.use_proxy != null && request.use_proxy == 1
+                && !string.IsNullOrWhiteSpace(request.proxy_ip)
+                && !request.proxy_ip.StartsWith("UNASSIGNED_SYSTEM_ADDRESS")
+                && request.proxy_port.HasValue && request.proxy_port.Value < 65535)
+            {
+                room.HostIp = request.proxy_ip;
+                room.UsePort = request.proxy_port.Value;
+                Core.RoomTracer[room.RoomId] = RoomJoin.UseProxy;
+            }
             await Task.WhenAll(_userManager.UpdateAsyncLock(user), db.SaveChangesAsyncLock());
             HttpContext.AddHeader(SkyError.OK);
             return OkJson(HttpContext);
@@ -66,12 +76,10 @@ namespace SkyDriftCoreWeb.Controllers
             if (!ModelState.IsValid) return BadRequestJson(HttpContext);
             var user = await GetUserByToken(access_token);
             if (user == null) { HttpContext.AddHeader(SkyError.AuthError); return UnauthorizedJson(HttpContext); }
-            var target = await GetUserByToken(access_token);
-            if (target == null) return BadRequestJson(HttpContext);
             var room = db.Rooms.FirstOrDefault(r => r.IsMatch && r.RoomId == matching_id);
             if (room == null) return BadRequestJson(HttpContext);
             //MARK: is this necessary?
-            if (room.HostId != user.Id && room.HostIp != HttpContext.GetClientIP())
+            if (room.HostId != user.Id)
             {
                 return UnauthorizedJson(HttpContext);
             }
@@ -81,9 +89,10 @@ namespace SkyDriftCoreWeb.Controllers
             {
                 room.PlayerNum = 7;
             }
-            target.CurrentRoomId = room.RoomId;
-            target.State = UserState.InMatch;
-            await Task.WhenAll(_userManager.UpdateAsyncLock(user), _userManager.UpdateAsyncLock(target), db.SaveChangesAsyncLock());
+            user.CurrentRoomId = room.RoomId;
+            user.State = UserState.InMatch;
+            await _userManager.UpdateAsyncLock(user);
+            await db.SaveChangesAsyncLock();
 
             HttpContext.AddHeader(SkyError.OK);
             return OkJson(HttpContext);
@@ -145,7 +154,7 @@ namespace SkyDriftCoreWeb.Controllers
                     return BadRequestJson(HttpContext);
                 }
                 HttpContext.AddHeader(SkyError.OK);
-                if (room.HostId == user.Id || room.HostIp == HttpContext.GetClientIP())
+                if (room.HostId == user.Id)
                 {
                     var us = from u in _userManager.Users
                              where u.State != UserState.Offline && u.CurrentRoomId == room.RoomId
@@ -248,7 +257,7 @@ namespace SkyDriftCoreWeb.Controllers
             }
 
             //user.State = UserState.InRace;
-            if (room.HostId == user.Id || room.HostIp == HttpContext.GetClientIP())
+            if (room.HostId == user.Id)
             {
                 room.IsRacing = true;
             }
@@ -268,7 +277,7 @@ namespace SkyDriftCoreWeb.Controllers
             HttpContext.AddHeader(SkyError.OK);
             user.State = UserState.InMatch;
             user.LastRaceTime = DateTime.Now;
-            if (room.HostId == user.Id || room.HostIp == HttpContext.GetClientIP())
+            if (room.HostId == user.Id)
             {
                 room.IsRacing = false;
                 room.RaceCount++;

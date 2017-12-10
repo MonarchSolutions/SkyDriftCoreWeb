@@ -25,9 +25,8 @@ namespace SkyDriftCoreWeb
                 (int)TimeSpan.FromHours(roomCleanDuration).Duration().TotalMilliseconds);
             //_userKicker = new Timer(KickUser, null, 10000,
             //    (int)TimeSpan.FromHours(userKickDuration).Duration().TotalMilliseconds);
-            _userKicker = new Timer(KickUser, null, 10000,Timeout.Infinite);
-            _statisticianShort = new Timer(ShortStatics, null, 5000, (int)TimeSpan.FromMinutes(5).TotalMilliseconds);
-            
+            _userKicker = new Timer(KickUser, null, 15000, Timeout.Infinite);
+            _statisticianShort = new Timer(ShortStatics, null, 10000, (int)TimeSpan.FromMinutes(5).TotalMilliseconds);
         }
 
         public void Dispose()
@@ -59,7 +58,8 @@ namespace SkyDriftCoreWeb
             //        Core.RankList = new List<ApplicationUser>();
             //    }
             //}
-            foreach (var player in Core.UserManager.Users.AsEnumerable())
+            var users = await Core.UserManager.Users.ToListAsync();
+            foreach (var player in users)
             {
                 PlayerInfo pi;
                 if (Core.PlayerInfos.ContainsKey(player.Id))
@@ -72,8 +72,8 @@ namespace SkyDriftCoreWeb
                     Core.PlayerInfos[player.Id] = pi;
                 }
                 var matches = from match in _db.Matches
-                    where match.UserId == player.Id
-                    select match;
+                              where match.UserId == player.Id
+                              select match;
                 if (!matches.Any())
                 {
                     continue;
@@ -108,15 +108,13 @@ namespace SkyDriftCoreWeb
                 if (_superClean)
                 {
                     _superClean = false;
-                    rooms = from room in _db.Rooms
-                        where (room.RaceCount == 0 || room.PlayerNum == 0)
-                        select room;
+                    rooms = _db.Rooms;
                 }
                 else
                 {
                     rooms = from room in _db.Rooms
-                        where room.SetupTime < dt && (room.RaceCount == 0 || room.PlayerNum == 0)
-                        select room;
+                            where room.SetupTime < dt && (room.RaceCount == 0 || room.PlayerNum == 0)
+                            select room;
                 }
 
                 _db.Rooms.RemoveRange(rooms);
@@ -135,29 +133,29 @@ namespace SkyDriftCoreWeb
                 return;
             }
             var dt = DateTime.Now.AddHours(-Core.Config.MaximumUserOnlineTime);
-            //var onlines = from u in Core.UserManager.Users
+            //var onlines = await (from u in Core.UserManager.Users
             //              where u.State != UserState.Offline && u.LastActiveTime.HasValue && u.LastActiveTime.Value < dt
-            //              select u;
-            //await onlines.ToAsyncEnumerable().ForEachAsync(async u =>
-            // {
-            //     u.State = UserState.Offline;
-            //     u.AccessToken = null;
-            //     await Core.UserManager.UpdateAsyncLock(u);
-            // });
+            //              select u).ToListAsync();
+            //foreach (var u in onlines)
+            //{
+            //    u.State = UserState.Offline;
+            //    u.AccessToken = null;
+            //    await Core.UserManager.UpdateAsyncLock(u);
+            //}
 
-            int vRank = 1;
-            int tRank = 5;
-            int sRank = 10;
+            int topRank = 1;
+            int secondRank = 5;
+            int thirdRank = 10;
 
             IQueryable<int> us;
             int aRankCount;
             try
             {
                 us = from u in Core.UserManager.Users
-                    orderby u.Class descending
-                    select u.Id;
+                     orderby u.Class descending
+                     select u.Id;
 
-                aRankCount = (int)(us.Count() - (vRank + tRank + sRank) * 0.33);
+                aRankCount = (int)((us.Count() - (topRank + secondRank + thirdRank)) * 0.33f);
             }
             catch (Exception)
             {
@@ -166,7 +164,7 @@ namespace SkyDriftCoreWeb
             int aRank = aRankCount;
             int bRank = aRank;
 
-            List<int> usList = new List<int>(us.AsEnumerable());
+            List<int> usList = await us.ToListAsync();
 
             foreach (var uid in usList)
             {
@@ -182,24 +180,24 @@ namespace SkyDriftCoreWeb
                         user.State = UserState.Offline;
                         user.AccessToken = null;
                     }
-                    if (vRank > 0)
+                    if (topRank > 0)
                     {
-                        vRank--;
-                        user.Rank = (int)Ranking.V;
+                        topRank--;
+                        user.Rank = (int)Ranking.S;
                         await Core.UserManager.UpdateAsyncLock(user);
                         continue;
                     }
-                    if (tRank > 0)
+                    if (secondRank > 0)
                     {
-                        tRank--;
+                        secondRank--;
                         user.Rank = (int)Ranking.T;
                         await Core.UserManager.UpdateAsyncLock(user);
                         continue;
                     }
-                    if (sRank > 0)
+                    if (thirdRank > 0)
                     {
-                        sRank--;
-                        user.Rank = (int)Ranking.S;
+                        thirdRank--;
+                        user.Rank = (int)Ranking.V;
                         await Core.UserManager.UpdateAsyncLock(user);
                         continue;
                     }

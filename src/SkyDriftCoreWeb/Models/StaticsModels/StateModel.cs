@@ -12,5 +12,7 @@ namespace SkyDriftCoreWeb.Models.StaticsModels
         public int MatchingUsersCount { get; set; }
         public int InRoomUsersCount { get; set; }
         public int RacingUsersCount { get; set; }
+
+        public List<SkyRoom> Rooms { get; set; }
     }
 }
