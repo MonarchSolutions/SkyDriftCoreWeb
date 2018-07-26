@@ -36,32 +36,32 @@ namespace SkyDriftCoreWeb.Controllers
     public enum Ranking
     {
         /// <summary>
-        /// ÌØ£¨Í­£©
+        /// ç‰¹ï¼ˆé“œï¼‰
         /// </summary>
         V = 10003,
 
         /// <summary>
-        /// ÌØ£¨Òø£©
+        /// ç‰¹ï¼ˆé“¶ï¼‰
         /// </summary>
         T = 10002,
 
         /// <summary>
-        /// ÌØ£¨½ğ£©
+        /// ç‰¹ï¼ˆé‡‘ï¼‰
         /// </summary>
         S = 10001,
 
         /// <summary>
-        /// Îä
+        /// æ­¦
         /// </summary>
         A_Red = 9000,
 
         /// <summary>
-        /// ÖĞ
+        /// ä¸­
         /// </summary>
         B_Green = 6000,
 
         /// <summary>
-        /// ÎÈ
+        /// ç¨³
         /// </summary>
         C_Blue = 3000,
     }
@@ -69,86 +69,86 @@ namespace SkyDriftCoreWeb.Controllers
     public enum EKlassBonus
     {
         /// <summary>
-        /// ¤Ö¤Ã¤Á¤®¤ê
-        /// Ò£Ò£ÁìÏÈ
+        /// ã¶ã£ã¡ãã‚Š
+        /// é¥é¥é¢†å…ˆ
         /// </summary>
         TopSpeed,
 
         /// <summary>
-        /// ½ñÈÕ¤â¥É¥ê¥Õ¥È
-        /// ½ñÌìÒ²ÔÚÆ¯ÒÆ£¡
+        /// ä»Šæ—¥ã‚‚ãƒ‰ãƒªãƒ•ãƒˆ
+        /// ä»Šå¤©ä¹Ÿåœ¨æ¼‚ç§»ï¼
         /// </summary>
         Daily,
 
         /// <summary>
-        /// ¥¹¥Ú¥ëHIT
-        /// ·û¿¨´ò»÷
+        /// ã‚¹ãƒšãƒ«HIT
+        /// ç¬¦å¡æ‰“å‡»
         /// </summary>
         ItemHit,
 
         /// <summary>
-        /// ÂäÏÂ¥Ê¥·
-        /// ½Å²»Õ´µØ
+        /// è½ä¸‹ãƒŠã‚·
+        /// è„šä¸æ²¾åœ°
         /// </summary>
         NoFall,
 
         /// <summary>
-        /// ¥²©`¥¸Ê¹¤¤ÇĞ¤ê
-        /// µçÁ¿ºÄ¾¡
+        /// ã‚²ãƒ¼ã‚¸ä½¿ã„åˆ‡ã‚Š
+        /// ç”µé‡è€—å°½
         /// </summary>
         NoGuage,
 
         /// <summary>
-        /// ¥Î©`¥À¥á©`¥¸
-        /// ÎŞËğÍ¨¹Ø
+        /// ãƒãƒ¼ãƒ€ãƒ¡ãƒ¼ã‚¸
+        /// æ— æŸé€šå…³
         /// </summary>
         NoDamage,
 
         /// <summary>
-        /// ´óÄæÜ
-        /// ´óÄæ×ª
+        /// å¤§é€†è»¢
+        /// å¤§é€†è½¬
         /// </summary>
         SuperReversal,
 
         /// <summary>
-        /// ÄæÜ
-        /// Äæ×ª
+        /// é€†è»¢
+        /// é€†è½¬
         /// </summary>
         Reversal,
 
         /// <summary>
-        /// ´óÜÂä
-        /// ·ÉµÃ¸ßË¤µÃºİ
+        /// å¤§è»¢è½
+        /// é£å¾—é«˜æ‘”å¾—ç‹ 
         /// </summary>
         Tumble,
 
         /// <summary>
-        /// ¥¦¥£¥Ë¥ó¥°¥é¥ó
+        /// ã‚¦ã‚£ãƒ‹ãƒ³ã‚°ãƒ©ãƒ³
         /// Winning Run
         /// </summary>
         WinningRun,
 
         /// <summary>
-        /// ¥Ş¥¤¥¹¥Ú¥ë¥­©`¥×
-        /// ÁôÓĞÍõÅÆ
+        /// ãƒã‚¤ã‚¹ãƒšãƒ«ã‚­ãƒ¼ãƒ—
+        /// ç•™æœ‰ç‹ç‰Œ
         /// </summary>
         HasSpell,
 
         /// <summary>
-        /// ¥é¥¹¥È¥ï©`¥É°k„Ó
-        /// ·¢¶¯Last Word
+        /// ãƒ©ã‚¹ãƒˆãƒ¯ãƒ¼ãƒ‰ç™ºå‹•
+        /// å‘åŠ¨Last Word
         /// </summary>
         LastWord,
 
         /// <summary>
-        /// ×îáá¤Ç¤â¤á¤²¤Ê¤¤
-        /// ÓÀ²»ÑÔÆú
+        /// æœ€å¾Œã§ã‚‚ã‚ã’ãªã„
+        /// æ°¸ä¸è¨€å¼ƒ
         /// </summary>
         NeverGiveup,
 
         /// <summary>
-        /// ¥°¥Ã¥É¥¿¥Ã¥°
-        /// ×î¼ÑCP
+        /// ã‚°ãƒƒãƒ‰ã‚¿ãƒƒã‚°
+        /// æœ€ä½³CP
         /// </summary>
         GoodTag,
 
@@ -163,37 +163,37 @@ namespace SkyDriftCoreWeb.Controllers
     public enum EKlassName : long
     {
         /// <summary>
-        /// Ñı¾«¼¶
+        /// å¦–ç²¾çº§
         /// 10000f
         /// </summary>
         Fairy = 10000,
 
         /// <summary>
-        /// ÈËÀà¼¶
+        /// äººç±»çº§
         /// 100000f
         /// </summary>
         Human = 100000,
 
         /// <summary>
-        /// Ñı¹Ö¼¶
+        /// å¦–æ€ªçº§
         /// 300000f
         /// </summary>
         Youkai = 300000,
 
         /// <summary>
-        /// Éñ¼¶
+        /// ç¥çº§
         /// 1000000f
         /// </summary>
         God = 1000000,
 
         /// <summary>
-        /// ÏÍÕß¼¶
+        /// è´¤è€…çº§
         /// 5000000f
         /// </summary>
         Magi = 5000000,
 
         /// <summary>
-        /// »Ã×ß¼¶
+        /// å¹»èµ°çº§
         /// 1E+08f
         /// </summary>
         Phantasm = 100000000,
@@ -201,42 +201,42 @@ namespace SkyDriftCoreWeb.Controllers
 
     public enum Course
     {
-        ÂíÀï°ÂÈü³µ = 0,
-        Ä§·¨Ö®É­ = 1,
-        ÈËÀàÖ®´å = 2,
-        ºìÄ§¹İ = 3,
-        ÃÔÍ¾ÖñÁÖ = 4,
-        Ñı¹ÖÖ®É½ = 5,
-        Ê¥éı´¬ = 6,
-        °×ÓñÂ¥ = 7,
-        ×ÆÈÈµØÓüÒÅ¼£ = 8,
-        ÎíÖ®ºş = 9,
-        ¾É¶¼ = 10,
-        ÂíÀï°ÂÈü³µ2 = 11,
-        ÍâÃæµÄÊÀ½ç = 12,
-        °ÍÍßÂ³Ä§·¨Í¼Êé¹İ = 13,
+        é©¬é‡Œå¥¥èµ›è½¦ = 0,
+        é­”æ³•ä¹‹æ£® = 1,
+        äººç±»ä¹‹æ‘ = 2,
+        çº¢é­”é¦† = 3,
+        è¿·é€”ç«¹æ— = 4,
+        å¦–æ€ªä¹‹å±± = 5,
+        åœ£è¾‡èˆ¹ = 6,
+        ç™½ç‰æ¥¼ = 7,
+        ç¼çƒ­åœ°ç‹±é—è¿¹ = 8,
+        é›¾ä¹‹æ¹– = 9,
+        æ—§éƒ½ = 10,
+        é©¬é‡Œå¥¥èµ›è½¦2 = 11,
+        å¤–é¢çš„ä¸–ç•Œ = 12,
+        å·´ç“¦é²é­”æ³•å›¾ä¹¦é¦† = 13,
     }
 
     public enum Character
     {
-        ²©ÀöÁéÃÎ = 0,
-        ÎíÓêÄ§ÀíÉ³ = 1,
-        Ê®ÁùÒ¹†DÒ¹ = 2,
-        ÀÙÃ×ÀòÑÇË¹¿¨À×ÌØ = 3,
-        ¶«·ç¹ÈÔçÃç = 4,
-        ›ªÊ¸ÚÁ·Ã×Ó = 5,
-        ¹ÅÃ÷µØÁµ = 6,
-        ÇØĞÄ = 7,
-        »êÆÇÑıÃÎ = 8,
-        ÁåÏÉÓÅê¼»ªÔºÒòá¦ = 9,
-        ·âÊŞùw = 10,
-        Îï²¿²¼¶¼ = 11,
-        ç÷Â¶Åµ = 12,
-        ¹íÈËÕıĞ° = 13,
-        ÒÁ´µİÍÏã = 14,
-        ´ÄÄ¾»ªÉÈ = 15,
-        ±ÈÄÇÃû¾ÓÌì×Ó = 16,
-        °ËÔÆ×Ï = 17
+        åšä¸½çµæ¢¦ = 0,
+        é›¾é›¨é­”ç†æ²™ = 1,
+        åå…­å¤œå’²å¤œ = 2,
+        è•¾ç±³è‰äºšæ–¯å¡é›·ç‰¹ = 3,
+        ä¸œé£è°·æ—©è‹— = 4,
+        æ´©çŸ¢è¯¹è®¿å­ = 5,
+        å¤æ˜åœ°æ‹ = 6,
+        ç§¦å¿ƒ = 7,
+        é­‚é­„å¦–æ¢¦ = 8,
+        é“ƒä»™ä¼˜æ˜™åé™¢å› å¹¡ = 9,
+        å°å…½éµº = 10,
+        ç‰©éƒ¨å¸ƒéƒ½ = 11,
+        çªéœ²è¯º = 12,
+        é¬¼äººæ­£é‚ª = 13,
+        ä¼Šå¹èƒé¦™ = 14,
+        èŒ¨æœ¨åæ‰‡ = 15,
+        æ¯”é‚£åå±…å¤©å­ = 16,
+        å…«äº‘ç´« = 17
     }
 
     public enum SkyError
@@ -273,17 +273,17 @@ namespace SkyDriftCoreWeb.Controllers
             switch (user.State)
             {
                 case UserState.Offline:
-                    return "ÀëÏß";
+                    return "ç¦»çº¿";
                 case UserState.Online:
-                    return "¿ÉÄÜÔÚÏß";
+                    return "å¯èƒ½åœ¨çº¿";
                 case UserState.InRoom:
-                    return "¿ÉÄÜÔÚ·¿¼ä";
+                    return "å¯èƒ½åœ¨æˆ¿é—´";
                 case UserState.InRace:
-                    return "Æ¯ÒÆÖĞ";
+                    return "æ¼‚ç§»ä¸­";
                 case UserState.InMatch:
-                    return "ÅÅÎ»ÖĞ";
+                    return "æ’ä½ä¸­";
                 default:
-                    return "Ê§×ÙÖĞ";
+                    return "å¤±è¸ªä¸­";
             }
         }
 
@@ -317,13 +317,14 @@ namespace SkyDriftCoreWeb.Controllers
             {
                 return "-";
             }
-            return TimeSpan.FromMilliseconds(time).ToString("g");
+            //return TimeSpan.FromMilliseconds(time).ToString("g");
+            return TimeSpan.FromMilliseconds(time).ToString(@"mm\:ss\.fff"); //FIXED:
         }
 
         public static List<SelectListItem> GetSelectList(Type enumType)
         {
             List<SelectListItem> selectList = new List<SelectListItem>();
-            //selectList.Add(new SelectListItem { Text = "--ÇëÑ¡Ôñ--", Value = "",Selected = true});
+            //selectList.Add(new SelectListItem { Text = "--è¯·é€‰æ‹©--", Value = "",Selected = true});
             foreach (int e in Enum.GetValues(enumType))
             {
                 selectList.Add(new SelectListItem { Text = GetCourseName(e), Value = e.ToString() });
@@ -335,7 +336,7 @@ namespace SkyDriftCoreWeb.Controllers
         {
             if (!Core.PlayerInfos.ContainsKey(id))
             {
-                return "£¿£¿£¿";
+                return "ï¼Ÿï¼Ÿï¼Ÿ";
             }
             var pi = Core.PlayerInfos[id];
             return GetCharacterName(pi.CharacterTake.GetMaxIndex());
@@ -345,7 +346,7 @@ namespace SkyDriftCoreWeb.Controllers
         {
             if (!Core.PlayerInfos.ContainsKey(id))
             {
-                return "£¿£¿£¿";
+                return "ï¼Ÿï¼Ÿï¼Ÿ";
             }
             var pi = Core.PlayerInfos[id];
             return GetCharacterName(pi.CharacterWin.GetMaxIndex());
@@ -456,7 +457,7 @@ namespace SkyDriftCoreWeb.Controllers
         {
             if (!Core.PlayerInfos.ContainsKey(id))
             {
-                return "£¿£¿£¿";
+                return "ï¼Ÿï¼Ÿï¼Ÿ";
             }
             var pi = Core.PlayerInfos[id];
             return GetCourseName(pi.CourseWin.GetMaxIndex());
@@ -499,7 +500,7 @@ namespace SkyDriftCoreWeb.Controllers
             {
                 return GetCourseName((Course)c);
             }
-            return "£¿£¿£¿";
+            return "ï¼Ÿï¼Ÿï¼Ÿ";
         }
 
         public static string GetCharacterName(Character c)
@@ -512,43 +513,43 @@ namespace SkyDriftCoreWeb.Controllers
             switch (c)
             {
                 case 0:
-                    return "²©Àö ÁéÃÎ";
+                    return "åšä¸½ çµæ¢¦";
                 case 1:
-                    return "ÎíÓê Ä§ÀíÉ³";
+                    return "é›¾é›¨ é­”ç†æ²™";
                 case 2:
-                    return "Ê®ÁùÒ¹ †DÒ¹";
+                    return "åå…­å¤œ å’²å¤œ";
                 case 3:
-                    return "ÀÙÃ×ÀòÑÇ¡¤Ë¹¿¨À×ÌØ";
+                    return "è•¾ç±³è‰äºšÂ·æ–¯å¡é›·ç‰¹";
                 case 4:
-                    return "¶«·ç¹È ÔçÃç";
+                    return "ä¸œé£è°· æ—©è‹—";
                 case 5:
-                    return "›ªÊ¸ ÚÁ·Ã×Ó";
+                    return "æ´©çŸ¢ è¯¹è®¿å­";
                 case 6:
-                    return "¹ÅÃ÷µØ Áµ";
+                    return "å¤æ˜åœ° æ‹";
                 case 7:
-                    return "ÇØ ĞÄ";
+                    return "ç§¦ å¿ƒ";
                 case 8:
-                    return "»êÆÇ ÑıÃÎ";
+                    return "é­‚é­„ å¦–æ¢¦";
                 case 9:
-                    return "ÁåÏÉ¡¤ÓÅê¼»ªÔº¡¤Òòá¦";
+                    return "é“ƒä»™Â·ä¼˜æ˜™åé™¢Â·å› å¹¡";
                 case 10:
-                    return "·âÊŞ ùw";
+                    return "å°å…½ éµº";
                 case 11:
-                    return "Îï²¿ ²¼¶¼";
+                    return "ç‰©éƒ¨ å¸ƒéƒ½";
                 case 12:
-                    return "ç÷Â¶Åµ";
+                    return "çªéœ²è¯º";
                 case 13:
-                    return "¹íÈË ÕıĞ°";
+                    return "é¬¼äºº æ­£é‚ª";
                 case 14:
-                    return "ÒÁ´µ İÍÏã";
+                    return "ä¼Šå¹ èƒé¦™";
                 case 15:
-                    return "´ÄÄ¾ »ªÉÈ";
+                    return "èŒ¨æœ¨ åæ‰‡";
                 case 16:
-                    return "±ÈÄÇÃû¾Ó Ìì×Ó";
+                    return "æ¯”é‚£åå±… å¤©å­";
                 case 17:
-                    return "°ËÔÆ ×Ï";
+                    return "å…«äº‘ ç´«";
                 default:
-                    return "£¿£¿£¿";
+                    return "ï¼Ÿï¼Ÿï¼Ÿ";
             }
         }
 
@@ -556,26 +557,26 @@ namespace SkyDriftCoreWeb.Controllers
         {
             if (rank == (int)Ranking.V)
             {
-                return "Í­";
+                return "é“œ";
             }
             if (rank == (int)Ranking.T)
             {
-                return "Òø";
+                return "é“¶";
             }
             if (rank == (int)Ranking.S)
             {
-                return "½ğ£¨ÍõÕß£©";
+                return "é‡‘ï¼ˆç‹è€…ï¼‰";
             }
             if (rank >= (int)Ranking.A_Red)
             {
-                return "Îä";
+                return "æ­¦";
             }
             if (rank >= (int)Ranking.B_Green)
             {
-                return "ÖĞ";
+                return "ä¸­";
             }
 
-            return "ÎÈ£¡";
+            return "ç¨³ï¼";
 
         }
 
@@ -583,25 +584,25 @@ namespace SkyDriftCoreWeb.Controllers
         {
             if (klass < (int)EKlassName.Fairy)
             {
-                return "Ñı¾«¼¶";
+                return "å¦–ç²¾çº§";
             }
             if (klass < (int)EKlassName.Human)
             {
-                return "ÈËÀà¼¶";
+                return "äººç±»çº§";
             }
             if (klass < (int)EKlassName.Youkai)
             {
-                return "Ñı¹Ö¼¶";
+                return "å¦–æ€ªçº§";
             }
             if (klass < (int)EKlassName.God)
             {
-                return "Éñ¼¶";
+                return "ç¥çº§";
             }
             if (klass < (int)EKlassName.Magi)
             {
-                return "ÏÍÕß¼¶";
+                return "è´¤è€…çº§";
             }
-            return "»Ã×ß¼¶";
+            return "å¹»èµ°çº§";
         }
         public static IQueryable<ApplicationUser> GetOnlineUsers(this UserManager<ApplicationUser> userManager)
         {

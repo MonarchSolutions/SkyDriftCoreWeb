@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace SkyDriftCoreWeb
 {
@@ -13,7 +10,14 @@ namespace SkyDriftCoreWeb
         public static void Main(string[] args)
         {
             Core.Init();
+            //2.x, can not get UserManager anymore
+            //            CreateWebHostBuilder(args)
+            //#if !DEBUG
+            //                .UseUrls(Core.Config.ListenUrls)
+            //#endif
+            //                .Build().Run();
 
+            //1.x
             IWebHost host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
@@ -23,10 +27,20 @@ namespace SkyDriftCoreWeb
                 .UseUrls(Core.Config.ListenUrls)
 #endif
                 .Build();
-            
             host.Run();
 
             Core.StopTasks();
         }
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                //.ConfigureAppConfiguration((hostContext, config) =>
+                //{
+                //    // delete all default configuration providers
+                //    config.Sources.Clear();
+                //    config.AddJsonFile("appsettings.json", optional: true);
+                //})
+        ;
     }
 }

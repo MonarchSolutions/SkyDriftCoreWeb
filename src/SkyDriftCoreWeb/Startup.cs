@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -21,6 +16,7 @@ namespace SkyDriftCoreWeb
     public class Startup
     {
         public static string ConnectionString;
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -46,6 +42,21 @@ namespace SkyDriftCoreWeb
 
         public IConfigurationRoot Configuration { get; }
 
+        //2.x
+        //        public Startup(IConfiguration configuration)
+        //        {
+        //            Configuration = configuration;
+
+        //#if SQLCE
+        //            ConnectionString = Configuration.GetConnectionString("SqlceConnection");
+        //#else
+        //            ConnectionString = Configuration.GetConnectionString("SqliteConnection");
+        //#endif
+        //        }
+
+
+        //        public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -69,10 +80,11 @@ namespace SkyDriftCoreWeb
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                 })
-                .AddEntityFrameworkStores<ApplicationDbContext, int>() //MARK: necessary
+                .AddEntityFrameworkStores<ApplicationDbContext>() //MARK: necessary
                 .AddDefaultTokenProviders();
 
-            services.AddMvc();
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -80,7 +92,7 @@ namespace SkyDriftCoreWeb
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory /*, UserManager<ApplicationUser> userManager*/)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 
@@ -89,16 +101,23 @@ namespace SkyDriftCoreWeb
                 loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-                app.UseBrowserLink();
+                //app.UseBrowserLink();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
 
             app.UseStaticFiles();
+            //app.UseHttpsRedirection();
+            //app.UseCookiePolicy();
+
             //启用认证
-            app.UseIdentity();
+            //https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/identity-2x?view=aspnetcore-2.1
+
+            //app.UseIdentity();
+            app.UseAuthentication();
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
 
@@ -110,6 +129,7 @@ namespace SkyDriftCoreWeb
             });
 
             Core.UserManager = app.ApplicationServices.GetService<UserManager<ApplicationUser>>();
+            //Core.UserManager = userManager;
             Core.StartTasks();
         }
     }

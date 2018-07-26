@@ -63,6 +63,11 @@ namespace SkyDriftCoreWeb.Controllers
             var oldR = db.Records.FirstOrDefault(rec => rec.UserId == user.Id && rec.CourseId == request.course_id);
             if (oldR != null)
             {
+                if (oldR.TotalTime < r.TotalTime) //FIXED:
+                {
+                    HttpContext.AddHeader(SkyError.InvaildInput);
+                    return Json(null);
+                }
                 oldR.Character1 = r.Character1;
                 oldR.Character2 = r.Character2;
                 oldR.TotalTime = r.TotalTime;

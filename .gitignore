@@ -246,3 +246,5 @@ ModelManifest.xml
 /bak
 Migrations
 /src/SkyDriftCoreWeb/Properties/PublishProfiles/WebDeployAi.pubxml
+/src/SkyDriftCoreWeb/Properties/PublishProfiles
+*.db

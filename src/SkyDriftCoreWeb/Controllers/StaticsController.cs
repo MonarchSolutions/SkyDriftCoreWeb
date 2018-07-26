@@ -16,6 +16,7 @@ namespace SkyDriftCoreWeb.Controllers
 {
     public class StaticsController : Controller
     {
+        private const int MaxShownRecord = 15;
         private SkyDriftDbContext db = new SkyDriftDbContext();
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -46,16 +47,16 @@ namespace SkyDriftCoreWeb.Controllers
         {
             if (model == null)
             {
-                model = new RecordQueryModel() {Course = Course.马里奥赛车,Records = new List<Record>()};
+                model = new RecordQueryModel() { Course = Course.马里奥赛车, Records = new List<Record>() };
             }
 
             ViewBag.CourseName = Helper.GetCourseName(model.Course);
 
-            BasePageModel page = new BasePageModel() { SearchKeyWord = "", CurrentIndex = 1, TotalCount = 10 };
+            BasePageModel page = new BasePageModel() { SearchKeyWord = "", CurrentIndex = 1, TotalCount = MaxShownRecord, PageSize = MaxShownRecord };
             var list = (from r in db.Records
-                where r.CourseId == (int)model.Course
-                orderby r.TotalTime
-                select r).Take(10).AsEnumerable().ToList();
+                        where r.CourseId == (int)model.Course
+                        orderby r.TotalTime
+                        select r).Take(MaxShownRecord).AsEnumerable().ToList();
             ViewData["PageModel"] = page;
             model.Records = list;
             return View(model);

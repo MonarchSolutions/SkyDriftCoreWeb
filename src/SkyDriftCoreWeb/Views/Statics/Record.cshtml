@@ -26,6 +26,7 @@
             <th>第2圈</th>
             <th>第3圈</th>
             <th>使用角色</th>
+            <th>上传时间</th>
         </tr>
     </thead>
     <tbody>
@@ -54,9 +55,10 @@
                 <td>@Helper.TimeToString(item.Time1)</td>
                 <td>@Helper.TimeToString(item.Time2)</td>
                 <td>@Helper.GetCharacterName(item.Character1) / @Helper.GetCharacterName(item.Character2)</td>
+                <td>@(item.Time?.ToString("yyyy-MM-dd") ?? "来自未来")</td>
             </tr>
                         }
 
     </tbody>
 </table>
-@Html.Partial("_PagePartial", ViewData["PageModel"])
+@await Html.PartialAsync("_PagePartial", ViewData["PageModel"])

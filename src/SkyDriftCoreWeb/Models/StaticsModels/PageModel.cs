@@ -38,21 +38,12 @@ namespace SkyDriftCoreWeb.Models.StaticsModels
         /// <summary>
         /// 根据需要具体而定PageSize
         /// </summary>
-        public virtual int PageSize
-        {
-            get { return 10; }
-        }
+        public virtual int PageSize { get; set; } = 10;
 
         /// <summary>
         ///根据需要具体而定 分页显示最大的页数 
         /// </summary>
-        public virtual int DisplayMaxPages
-        {
-            get
-            {
-                return 10;
-            }
-        }
+        public virtual int DisplayMaxPages { get; set; } = 10;
 
         public bool IsHasPrePage
         {
