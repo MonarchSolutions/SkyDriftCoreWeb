@@ -65,7 +65,7 @@ namespace SkyDriftCoreWeb
                options.UseSqlCe(ConnectionString));
 #else
             services.AddDbContext<ApplicationDbContext>(options =>
-               options.UseSqlite(ConnectionString));
+                options.UseSqlite(ConnectionString));
 #endif
             //services.AddDbContext<ApplicationDbContext>(options =>
             //   options.UseSqlite(ConnectionString));
@@ -92,13 +92,14 @@ namespace SkyDriftCoreWeb
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory /*, UserManager<ApplicationUser> userManager*/)
+        public void Configure(IApplicationBuilder app,
+            IHostingEnvironment env /*, ILoggerFactory loggerFactory , UserManager<ApplicationUser> userManager*/)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            //loggerFactory.AddConsole();
 
             if (env.IsDevelopment())
             {
-                loggerFactory.AddDebug();
+                //loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
                 //app.UseBrowserLink();

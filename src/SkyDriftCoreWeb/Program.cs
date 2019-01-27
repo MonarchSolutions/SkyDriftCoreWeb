@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace SkyDriftCoreWeb
 {
@@ -26,6 +27,13 @@ namespace SkyDriftCoreWeb
 #if !DEBUG
                 .UseUrls(Core.Config.ListenUrls)
 #endif
+                .ConfigureLogging((hostingContext, logging) =>
+                {
+                    logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                    logging.AddConsole();
+                    logging.AddDebug();
+                    logging.AddEventSourceLogger();
+                })
                 .Build();
             host.Run();
 
