@@ -67,6 +67,7 @@ namespace SkyDriftCoreWeb
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(ConnectionString));
 #endif
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             //services.AddDbContext<ApplicationDbContext>(options =>
             //   options.UseSqlite(ConnectionString));
 
@@ -83,8 +84,9 @@ namespace SkyDriftCoreWeb
                 .AddEntityFrameworkStores<ApplicationDbContext>() //MARK: necessary
                 .AddDefaultTokenProviders();
 
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //MARK: NEW: AddRazorRuntimeCompilation
+            services.AddMvc(options => options.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();

@@ -31,11 +31,11 @@ namespace SkyDriftCoreWeb.Controllers
         public async Task<IActionResult> State()
         {
             StateModel s = new StateModel();
-            var users = _userManager.Users.ToAsyncEnumerable();
-            s.OnlineUsersCount = await users.Count(u => u.State != UserState.Offline);
-            s.MatchingUsersCount = await users.Count(u => u.State == UserState.InMatch);
-            s.InRoomUsersCount = await users.Count(u => u.State == UserState.InRoom);
-            s.RacingUsersCount = await users.Count(u => u.State == UserState.InRace);
+            var users = _userManager.Users;
+            s.OnlineUsersCount = await users.CountAsync(u => u.State != UserState.Offline);
+            s.MatchingUsersCount = await users.CountAsync(u => u.State == UserState.InMatch);
+            s.InRoomUsersCount = await users.CountAsync(u => u.State == UserState.InRoom);
+            s.RacingUsersCount = await users.CountAsync(u => u.State == UserState.InRace);
             s.OfflineUsersCount = _userManager.Users.Count() - s.OnlineUsersCount;
 
             s.Rooms = await db.Rooms.ToListAsync();

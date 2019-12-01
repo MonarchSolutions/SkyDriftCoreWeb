@@ -84,7 +84,7 @@ namespace SkyDriftCoreWeb
                 //    continue;
                 //}
                 pi.TotalMatch = count;
-                await matches.ToAsyncEnumerable().ForEachAsync(m =>
+                await matches.ForEachAsync(m =>
                 {
                     pi.CharacterTake[m.Character1]++;
                     pi.CharacterTake[m.Character2]++;
