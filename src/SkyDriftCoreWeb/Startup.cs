@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Hosting;
 using SkyDriftCoreWeb.Data;
 using SkyDriftCoreWeb.Models;
 using SkyDriftCoreWeb.Services;
@@ -17,7 +16,9 @@ namespace SkyDriftCoreWeb
     {
         public static string ConnectionString;
 
-        public Startup(IHostingEnvironment env)
+        //Use IHostEnvironment where possible, and use IWebHostEnvironment when you need access to the WebRootPath or WebRootFileProvider properties.
+        
+        public Startup(IHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -95,7 +96,7 @@ namespace SkyDriftCoreWeb
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app,
-            IHostingEnvironment env /*, ILoggerFactory loggerFactory , UserManager<ApplicationUser> userManager*/)
+            IHostEnvironment env /*, ILoggerFactory loggerFactory , UserManager<ApplicationUser> userManager*/)
         {
             //loggerFactory.AddConsole();
 
